@@ -26,12 +26,6 @@ class Fabricante extends Model {
         timestamps: true,
       }
     );
-
-    // Associação com Medicamento
-    Fabricante.hasMany(Medicamento, {
-      foreignKey: 'fabricante_id',
-      as: 'medicamentos',
-    });
   }
 }
 

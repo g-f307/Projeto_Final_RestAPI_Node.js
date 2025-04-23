@@ -1,3 +1,6 @@
+import Fabricante from "../models/Fabricante.js";
+import Medicamento from "../models/Medicamento.js";
+
 export const listarMedicamentos = async (req, res) => {
     try {
         const medicamentos = await Medicamento.findAll({
@@ -8,11 +11,12 @@ export const listarMedicamentos = async (req, res) => {
           });
   
       const response = medicamentos.map((medicamento) => ({
+        id: medicamento.id,
         nome_comercial: medicamento.nome_comercial,
         princípio_ativo: medicamento.princípio_ativo,
         registro_anvisa: medicamento.registro_anvisa,
         dosagem: medicamento.dosagem,
-        fabricante_id: medicamento.fabricante.nome,
+        fabricante: medicamento.fabricante.nome,
 
       }));
 
@@ -47,11 +51,12 @@ export const obterMedicamento = async (req, res) => {
         }
     
         const response = {
+            id: medicamento.id,
             nome_comercial: medicamento.nome_comercial,
             princípio_ativo: medicamento.princípio_ativo,
             registro_anvisa: medicamento.registro_anvisa,
             dosagem: medicamento.dosagem,
-            fabricante_id: medicamento.fabricante.nome,
+            fabricante: medicamento.fabricante.nome,
         };
 
         res.status(200).json(response);

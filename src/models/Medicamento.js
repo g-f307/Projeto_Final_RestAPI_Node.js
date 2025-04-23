@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import Fabricante from './Fabricante';
+import Fabricante from './Fabricante.js';
 
 class Medicamento extends Model {
   static initModel(sequelize) {
@@ -43,7 +43,7 @@ class Medicamento extends Model {
     // Associação com Fabricante
     Medicamento.belongsTo(Fabricante, {
       foreignKey: 'fabricante_id',
-      as: 'fabricantes',
+      as: 'fabricante',
     });
   }
 }

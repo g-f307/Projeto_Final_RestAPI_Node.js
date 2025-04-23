@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get('/', listarFabricantes);
 router.post('/', criarFabricante);
-router.get('/id:', obterFabricante);
+router.get('/:id', obterFabricante);
 router.delete('/:id', deletarFabricante);
 
 export default router;

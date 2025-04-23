@@ -1,10 +1,12 @@
 import Fabricante from '../models/Fabricante.js';
+import Medicamento from '../models/Medicamento.js';
 
 export const listarFabricantes = async (req, res) => {
     try {
       const fabricantes = await Fabricante.findAll();
   
       const response = fabricantes.map((fabricante) => ({
+        id: fabricante.id,
         nome: fabricante.nome,
         documento_registro: fabricante.documento_registro,
         país: fabricante.país,
@@ -37,6 +39,7 @@ export const obterFabricante = async (req, res) => {
         }
     
         const response = {
+            id: fabricante.id,
             nome: fabricante.nome,
             documento_registro: fabricante.documento_registro,
             país: fabricante.país,
@@ -54,6 +57,16 @@ export const deletarFabricante = async (req, res) => {
     
         if (!fabricante) {
             return res.status(404).json({ error: 'Fabricante não encontrado.' });
+        }
+
+        const medicamentosAssociados = await Medicamento.findOne({
+            where: { fabricante_id: fabricante.id }
+        });
+        
+        if (medicamentosAssociados) {
+            return res.status(400).json({
+                error: 'Não é possível deletar o fabricante, pois existem medicamentos associados a ele.'
+            });
         }
 
         await estado.destroy();

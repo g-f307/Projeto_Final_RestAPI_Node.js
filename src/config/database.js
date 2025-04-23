@@ -11,3 +11,5 @@ const sequelize = new Sequelize({
 
 Fabricante.initModel(sequelize);
 Medicamento.initModel(sequelize);
+
+export default sequelize;
