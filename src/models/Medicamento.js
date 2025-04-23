@@ -9,7 +9,7 @@ class Medicamento extends Model {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        princípio_ativo: {
+        principio_ativo: {
           type: DataTypes.STRING,
           allowNull: false,
         },
