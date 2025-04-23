@@ -14,7 +14,7 @@ class Fabricante extends Model {
           allowNull: false,
           unique: true,
         },
-        país: {
+        pais: {
           type: DataTypes.STRING,
           allowNull: false,
         },
