@@ -66,7 +66,7 @@ node insereDados.js (para povoar o banco)
 
 <h2> No Windows: </h2>
 
-* Baixe e extraia o zip disponível pelo github ou clone o repositório pela IDE do VsCode. Após isso, realize os mesmos passos no terminal da IDE para inicicar o servidor.
+* Baixe e extraia o zip disponível pelo github ou clone o repositório pela IDE do VsCode. Após isso, realize os mesmos passos no terminal da IDE para iniciar o servidor.
 
 ---
 
